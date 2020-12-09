@@ -1,0 +1,11 @@
+.wrapper {
+  width: 250px;
+  padding: 10px;
+  margin-right: 50px;
+}
+
+.name {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+}

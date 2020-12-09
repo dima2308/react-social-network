@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.nav {
+  grid-area: n;
+  border-right: 2px dotted #3b5998;
+}
+
+.nav .menu {
+  padding: 0;
+  list-style: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  transition: .3s linear;
+}
+
+.menu a:hover {
+  color: #b99d61
+}
+
+.menu {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 250px;
+}
+
+.menu li {
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #616a6b;
+  display: inline-block;
+}
+
+.menu li:before {
+  font-family: FontAwesome;
+  font-size: 20px;
+  vertical-align: bottom;
+  color: #dd3333;
+  margin-right: 14px;
+}
+
+li .activeLink {
+  border-bottom: 2px solid red;
+}
+
+.menu li:nth-child(1):before {
+  content: "\f015";
+  margin-right: 10px;
+}
+
+.menu li:nth-child(2):before {
+  content: "\f075";
+  margin-right: 10px;
+}
+
+.menu li:nth-child(3):before {
+  content: "\f0cd";
+}
+
+.menu li:nth-child(4):before {
+  content: "\f001";
+}
+
+.menu li:nth-child(5):before {
+  content: "\f0c0";
+  margin-right: 10px;
+}

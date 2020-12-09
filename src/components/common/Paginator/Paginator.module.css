@@ -1,0 +1,7 @@
+.pagination span {
+    margin-right: 2px;
+}
+
+.pagination span:hover {
+    cursor: pointer;
+}
