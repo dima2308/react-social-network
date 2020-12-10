@@ -4,6 +4,13 @@ import avatar from '../../../assets/images/user.jpg'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
 const ProfileInfo = (props) => {
+  console.log(props)
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0])
+    }
+  }
+
   if (!props.profile) {
     return <Preloader />
   }
@@ -13,6 +20,7 @@ const ProfileInfo = (props) => {
       <img src={props.profile.photos.small ? props.profile.photos.small : avatar}
         alt="avatar" width="240" height="320">
       </img>
+      { !props.isOwner && <input onChange={onMainPhotoSelected} type="file"></input>}
       <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
     </div>
   )

@@ -26,7 +26,7 @@ class App extends React.Component {
       return <Preloader />
     } else {
       return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <HeaderContainer />
           <div className="app-wrapper">
             <Navbar />
