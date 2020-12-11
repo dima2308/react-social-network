@@ -25,7 +25,7 @@ export const usersAPI = {
   },
 
   async unFollow(id) {
-    const response = await instance.deconste(`follow/${id}`)
+    const response = await instance.delete(`follow/${id}`)
     return response.data
   },
 
@@ -46,7 +46,7 @@ export const authAPI = {
   },
 
   async logout() {
-    const response = await instance.deconste('auth/login')
+    const response = await instance.delete('auth/login')
     return response.data
   }
 }
@@ -76,6 +76,11 @@ export const profileAPI = {
         'Content-Type': 'multipart/form-data'
       }
     })
+    return response.data
+  },
+
+  async saveProfile(profile) {
+    const response = await instance.put(`profile/`, profile)
     return response.data
   }
 }

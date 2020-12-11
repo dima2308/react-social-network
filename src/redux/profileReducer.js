@@ -39,7 +39,6 @@ const profileReducer = (state = initialState, action) => {
       }
     }
 
-
     case SET_USER_STATUS || UPDATE_USER_STATUS: {
       return {
         ...state, status: action.status
@@ -50,7 +49,7 @@ const profileReducer = (state = initialState, action) => {
       return { ...state, posts: state.posts.filter(p => p.id !== action.post_id) }
 
     case SAVE_PHOTO:
-      return { ...state, profile: {...state.profile, photos: action.photos}}
+      return { ...state, profile: { ...state.profile, photos: action.photos } }
 
     default:
       return state;
@@ -94,6 +93,18 @@ export const savePhoto = (photo) => {
       .then(response => {
         if (response.resultCode === 0) {
           dispatch(savePhotoSuccess(photo))
+        }
+      })
+  }
+}
+
+export const saveProfile = (profileData) => {
+  return (dispatch, getState) => {
+    const userID = getState().auth.userId
+    profileAPI.saveProfile(profileData)
+      .then(response => {
+        if (response.resultCode === 0) {
+          dispatch(getUserProfile(userID))
         }
       })
   }
