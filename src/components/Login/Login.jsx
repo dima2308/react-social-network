@@ -10,7 +10,8 @@ const Login = (props) => {
     let email = formData.email
     let password = formData.password
     let rememberMe = formData.rememberMe
-    props.login(email, password, rememberMe)
+    let captcha = formData.captcha
+    props.login(email, password, rememberMe, captcha)
   }
 
   if (props.isAuth) {
@@ -19,7 +20,7 @@ const Login = (props) => {
     return (
       <div>
         <h1>Login</h1>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm onSubmit={onSubmit} captcha={props.captcha} />
       </div>
     )
   }
@@ -34,6 +35,9 @@ const LoginForm = (props) => {
         <Field component="input" name="rememberMe" type="checkbox" id="remember" />
         <label htmlFor="remember">Remember me?</label>
       </div>
+      { props.captcha ? <img src={props.captcha} alt="captcha" /> : null}
+      { props.captcha ? <Field component={Input} validate={[required]} name="captcha" placeholder="Enter captcha" /> : null}
+      
       { props.error && <div>{props.error}</div>}
       <button type="submit">Submit</button>
     </form>
@@ -45,7 +49,9 @@ const LoginReduxForm = reduxForm({
 })(LoginForm)
 
 const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth,
+  captcha: state.auth.captcha
 })
+
 
 export default connect(mapStateToProps, { login })(Login)

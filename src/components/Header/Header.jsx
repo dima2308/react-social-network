@@ -6,6 +6,8 @@ const Header = (props) => {
     props.logout()
   }
 
+  console.log(props)
+
   return (
     <header className={styles.header}>
       <h1>Header</h1>
